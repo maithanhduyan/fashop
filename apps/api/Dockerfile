@@ -12,12 +12,15 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /app/server ./cmd/serv
 # Runtime stage
 FROM alpine:3.20
 
-RUN apk add --no-cache ca-certificates tzdata
+RUN apk add --no-cache ca-certificates tzdata postgresql-client
 
 WORKDIR /app
 COPY --from=builder /app/server .
 COPY --from=builder /app/migrations ./migrations
+COPY --from=builder /app/seeds ./seeds
+COPY --from=builder /app/entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
 EXPOSE 8080
 
-CMD ["./server"]
+CMD ["./entrypoint.sh"]
