@@ -1,6 +1,12 @@
 import type { AuthResponse, Cart, Category, Order, PaginatedOrders, PaginatedProducts, Product } from "./types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+function getApiUrl(): string {
+  // On client-side: detect Railway production by hostname
+  if (typeof window !== "undefined" && window.location.hostname.endsWith(".up.railway.app")) {
+    return "https://api-production-67a6.up.railway.app";
+  }
+  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+}
 
 class ApiError extends Error {
   constructor(public status: number, message: string) {
@@ -9,7 +15,7 @@ class ApiError extends Error {
 }
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const url = `${API_URL}${path}`;
+  const url = `${getApiUrl()}${path}`;
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
     ...((options.headers as Record<string, string>) || {}),
