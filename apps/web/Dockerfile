@@ -1,14 +1,14 @@
 # Dependencies
 FROM oven/bun:1 AS deps
 WORKDIR /app
-COPY package.json bun.lock ./
+COPY ./apps/web/package.json ./apps/web/bun.lock ./
 RUN bun install --frozen-lockfile
 
 # Build stage
 FROM oven/bun:1 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY ./apps/web .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN bun run build
