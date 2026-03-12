@@ -1,3 +1,7 @@
+# Playwright
+.playwright-mcp/
+
+
 # Logs
 logs
 *.log
