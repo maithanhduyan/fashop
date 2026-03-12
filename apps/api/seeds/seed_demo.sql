@@ -24,7 +24,7 @@ INSERT INTO products (name, slug, description, price, category_id, image_urls, s
   'ao-polo-classic-trang',
   'Áo polo nam chất liệu cotton cao cấp, form regular fit thoải mái. Cổ bẻ lịch lãm, phù hợp đi làm và dạo phố.',
   349000, 1,
-  ARRAY['https://images.unsplash.com/photo-1625910513413-5fc68e7990a4?w=600&q=80'],
+  ARRAY['https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&q=80'],
   'active'
 ),
 (

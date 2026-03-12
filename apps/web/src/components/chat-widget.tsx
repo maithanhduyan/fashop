@@ -43,7 +43,7 @@ export default function ChatWidget() {
 
       {/* Chat panel */}
       {open && (
-        <div className="animate-slide-in-right fixed bottom-6 right-6 z-50 flex h-[420px] w-[340px] flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-700 dark:bg-zinc-900">
+        <div className="animate-slide-in-right fixed bottom-4 right-4 z-50 flex h-[min(420px,calc(100vh-6rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl sm:bottom-6 sm:right-6 sm:w-[340px] dark:border-zinc-700 dark:bg-zinc-900">
           {/* Header */}
           <div className="flex items-center justify-between bg-blue-600 px-4 py-3 text-white">
             <div className="flex items-center gap-2">

@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="-mx-4 -mt-8">
+    <div className="-mx-4 -mt-6 sm:-mt-8">
       {/* ── Hero Banner ── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&q=60')] bg-cover bg-center opacity-20" />
@@ -30,16 +30,16 @@ export default function Home() {
           <p className="animate-fade-in-up delay-100 max-w-lg text-lg text-blue-100">
             Khám phá bộ sưu tập mới nhất — phong cách hiện đại, chất lượng cao, giá tốt nhất thị trường.
           </p>
-          <div className="animate-fade-in-up delay-200 flex gap-4">
+          <div className="animate-fade-in-up delay-200 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link
               href="/products"
-              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-blue-700 shadow-lg transition hover:scale-105 hover:shadow-xl"
+              className="rounded-full bg-white px-8 py-3 text-center text-sm font-semibold text-blue-700 shadow-lg transition hover:scale-105 hover:shadow-xl"
             >
               Mua sắm ngay →
             </Link>
             <Link
               href="/products?sort_by=price&sort_order=asc"
-              className="rounded-full border-2 border-white/40 px-8 py-3 text-sm font-semibold text-white backdrop-blur transition hover:border-white hover:bg-white/10"
+              className="rounded-full border-2 border-white/40 px-8 py-3 text-center text-sm font-semibold text-white backdrop-blur transition hover:border-white hover:bg-white/10"
             >
               Ưu đãi hot 🔥
             </Link>
@@ -128,7 +128,7 @@ export default function Home() {
         <p className="animate-fade-in-up delay-100 mx-auto mt-2 max-w-md text-zinc-500 dark:text-zinc-400">
           Đăng ký nhận tin để cập nhật bộ sưu tập mới và mã giảm giá độc quyền.
         </p>
-        <form onSubmit={(e) => e.preventDefault()} className="animate-fade-in-up delay-200 mx-auto mt-6 flex max-w-md gap-2">
+        <form onSubmit={(e) => e.preventDefault()} className="animate-fade-in-up delay-200 mx-auto mt-6 flex max-w-md flex-col gap-2 sm:flex-row">
           <input
             type="email"
             placeholder="Email của bạn..."

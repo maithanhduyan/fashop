@@ -17,7 +17,8 @@
         "New-Item": true,
         "Out-Null": true,
         "where.exe": true,
-        "bunx": true
+        "bunx": true,
+        "docker exec": true
     },
     "workbench.browser.enableChatTools": true,
     "chat.agent.thinking.phrases": {
