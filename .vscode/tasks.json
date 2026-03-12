@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Web App",
+            "type": "shell",
+            "command": "bunx next build",
+            "options": {
+                "cwd": "${workspaceFolder}/apps/web"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Web App",
+            "type": "shell",
+            "command": "bunx next start",
+            "options": {
+                "cwd": "${workspaceFolder}/apps/web"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run API Server",
+            "type": "shell",
+            "command": "go run .",
+            "options": {
+                "cwd": "${workspaceFolder}/apps/api"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

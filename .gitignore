@@ -101,6 +101,12 @@ dist
 # vitepress build output
 **/.vitepress/dist
 
+# Fashop
+.env
+.env.local
+apps/api/server
+apps/api/server.exe
+
 # vitepress cache directory
 **/.vitepress/cache
 
