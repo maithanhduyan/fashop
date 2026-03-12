@@ -143,4 +143,88 @@ export async function getOrder(id: number): Promise<Order> {
   return request(`/api/v1/orders/${id}`);
 }
 
+// ── Admin: Products ──
+
+export async function adminCreateProduct(data: {
+  name: string;
+  slug: string;
+  description?: string;
+  price: number;
+  category_id?: number;
+  image_urls?: string[];
+  status?: string;
+}): Promise<Product> {
+  return request("/api/v1/admin/products", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function adminUpdateProduct(
+  id: number,
+  data: {
+    name?: string;
+    slug?: string;
+    description?: string;
+    price?: number;
+    category_id?: number;
+    image_urls?: string[];
+    status?: string;
+  },
+): Promise<Product> {
+  return request(`/api/v1/admin/products/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function adminDeleteProduct(id: number): Promise<void> {
+  return request(`/api/v1/admin/products/${id}`, { method: "DELETE" });
+}
+
+// ── Admin: Categories ──
+
+export async function adminCreateCategory(data: { name: string; slug: string }): Promise<Category> {
+  return request("/api/v1/admin/categories", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function adminUpdateCategory(id: number, data: { name: string; slug: string }): Promise<Category> {
+  return request(`/api/v1/admin/categories/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function adminDeleteCategory(id: number): Promise<void> {
+  return request(`/api/v1/admin/categories/${id}`, { method: "DELETE" });
+}
+
+// ── Admin: Orders ──
+
+export async function adminGetOrders(params?: {
+  page?: number;
+  limit?: number;
+  status?: string;
+}): Promise<PaginatedOrders> {
+  const sp = new URLSearchParams();
+  if (params?.page) sp.set("page", String(params.page));
+  if (params?.limit) sp.set("limit", String(params.limit));
+  if (params?.status) sp.set("status", params.status);
+  return request(`/api/v1/admin/orders?${sp.toString()}`);
+}
+
+export async function adminGetOrder(id: number): Promise<Order> {
+  return request(`/api/v1/admin/orders/${id}`);
+}
+
+export async function adminUpdateOrderStatus(id: number, status: string): Promise<Order> {
+  return request(`/api/v1/admin/orders/${id}/status`, {
+    method: "PUT",
+    body: JSON.stringify({ status }),
+  });
+}
+
 export { ApiError };

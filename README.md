@@ -3,7 +3,7 @@ Fashion shop
 
 ## Deploy on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/from-repo?repo=https%3A%2F%2Fgithub.com%2Fmaithanhduyan%2Ffashop)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/6cGM6O?referralCode=porbFd&utm_medium=integration&utm_source=template&utm_campaign=generic)
 
 ### Monorepo Setup
 
